@@ -128,6 +128,7 @@
   --font-sans: var(--font-pretendard), "Pretendard", -apple-system, sans-serif;
   --font-point: var(--font-cafe24-ssurround), var(--font-pretendard), sans-serif;
 
+  --radius-8: 8px;
   --radius-12: 12px;
   --radius-16: 16px;
   --radius-20: 20px;

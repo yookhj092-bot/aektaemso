@@ -12,10 +12,70 @@ import { useAppStore } from "@/lib/store";
 const WEEKDAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const DUMMY_DAYS = [13, 14, 15, 16, 17, 18, 19];
 
+function DugoCharacter() {
+  return (
+    <>
+      <div className="absolute left-[115px] top-[72px] h-[117px] w-[105px] overflow-hidden opacity-90">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/characters/home/home-character-1.png"
+          alt=""
+          className="absolute"
+          style={{ height: "138.87%", width: "155.39%", left: "-27.63%", top: "-19.6%", maxWidth: "none" }}
+        />
+      </div>
+      <div className="relative h-[137.895px] w-[120px] shrink-0 overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/characters/home/home-character-2.png"
+          alt=""
+          className="absolute"
+          style={{ height: "114.5%", width: "157.89%", left: "-29.82%", top: "-8.4%", maxWidth: "none" }}
+        />
+      </div>
+    </>
+  );
+}
+
+function RecentRecordRow() {
+  return (
+    <div className="flex w-full items-end gap-4 rounded-16 bg-white p-4">
+      <div className="flex shrink-0 self-stretch">
+        <div className="flex h-full flex-col items-center justify-center border-r border-grayscale-100 pr-4 text-center">
+          <p className="type-caption-md-rg w-6 text-grayscale-500">09</p>
+          <p className="type-title-md-bd w-6 text-grayscale-900">16</p>
+        </div>
+      </div>
+      <div className="flex min-w-0 flex-1 flex-col gap-2">
+        <div className="flex w-full items-center gap-2 border-b border-grayscale-100 pb-2">
+          <span className="type-caption-md-md shrink-0 rounded-8 bg-positive-100 px-2 py-1 text-positive-500">
+            행운 수령
+          </span>
+          <p className="type-title-md-bd min-w-0 flex-1 truncate text-grayscale-950">정규직 전환!!!!!!</p>
+        </div>
+        <p className="type-body-md-md w-full truncate text-grayscale-500">예상보다 빨리 정규직 전환 소식을 들었다</p>
+      </div>
+      <p className="type-body-md-md w-8 shrink-0 text-right text-positive-400">-10</p>
+    </div>
+  );
+}
+
+type ArrowSpec = {
+  src: string;
+  rotate: number;
+  boxTop: number;
+  boxRight: number;
+  boxW: number;
+  boxH: number;
+  innerW: number;
+  innerH: number;
+};
+
 type Step = {
   bubbleTop: number;
   text: string;
   highlight?: "record-button" | "points-badge" | "week-calendar" | "recent-list";
+  arrow?: ArrowSpec;
 };
 
 const STEPS: Step[] = [
@@ -24,21 +84,61 @@ const STEPS: Step[] = [
     bubbleTop: 80,
     text: "이 버튼을 눌러서 안 좋은 일도, 좋은 일도 뭐든 좋으니 솔직한 하루를 기록해 봐.",
     highlight: "record-button",
+    arrow: {
+      src: "/characters/tutorial/arrow-2.svg",
+      rotate: 68.61,
+      boxTop: 160,
+      boxRight: 13.76,
+      boxW: 107.242,
+      boxH: 120.924,
+      innerW: 100.116,
+      innerH: 75.955,
+    },
   },
   {
     bubbleTop: 276,
     text: "이게 네가 쌓아둔 액땜이야. 눌러 보면 상세 적립 내역을 볼 수 있어.",
     highlight: "points-badge",
+    arrow: {
+      src: "/characters/tutorial/arrow-3.svg",
+      rotate: -111.39,
+      boxTop: 140,
+      boxRight: 25.76,
+      boxW: 107.242,
+      boxH: 120.924,
+      innerW: 100.116,
+      innerH: 75.955,
+    },
   },
   {
     bubbleTop: 80,
     text: "이번주 기록들은 여기서 캘린더로 한눈에 볼 수 있어. 매일매일 도장 찍듯 남겨봐.",
     highlight: "week-calendar",
+    arrow: {
+      src: "/characters/tutorial/arrow-4.svg",
+      rotate: 68.61,
+      boxTop: 160,
+      boxRight: -6.94,
+      boxW: 197.389,
+      boxH: 222.573,
+      innerW: 184.273,
+      innerH: 139.802,
+    },
   },
   {
     bubbleTop: 80,
     text: "방금 접수한 일기는 여기 최근 기록에서 다시 볼 수 있어.",
     highlight: "recent-list",
+    arrow: {
+      src: "/characters/tutorial/arrow-5.svg",
+      rotate: 68.61,
+      boxTop: 160,
+      boxRight: -36.28,
+      boxW: 342.276,
+      boxH: 385.946,
+      innerW: 319.533,
+      innerH: 242.42,
+    },
   },
   { bubbleTop: 80, text: "안 좋은 날은 쌓이고, 좋은 날엔 쓰는 거야. 오늘도 천천히 두고 가." },
 ];
@@ -86,17 +186,14 @@ export default function Tutorial() {
               <div className="mb-[-16px] w-full rounded-16 bg-primary-100 p-4">
                 <p className="type-body-md-md text-grayscale-800">오늘은 무슨 일이 있어서 왔어?</p>
               </div>
-              <div className="relative h-[117px] w-[105px] translate-x-[10px] opacity-90">
-                <Image src="/characters/home/home-character-2.png" alt="" fill className="object-contain" />
-              </div>
-              <div className="relative h-[138px] w-[120px]">
-                <Image src="/characters/home/home-character-1.png" alt="" fill className="object-contain" />
-              </div>
+              <DugoCharacter />
             </div>
           </div>
 
           <div className="flex w-full items-center justify-center gap-4 rounded-16 bg-primary-200 p-4">
-            <span className="type-title-md-md text-primary-900">액땜 기록하기</span>
+            <span className="size-6 shrink-0" />
+            <span className="type-title-md-md flex-1 text-center text-primary-900">액땜 기록하기</span>
+            <Image src="/icons/arrow-right-24.svg" alt="" width={24} height={24} className="shrink-0" />
           </div>
         </div>
 
@@ -117,12 +214,7 @@ export default function Tutorial() {
 
         <div className="flex w-full flex-col gap-3">
           <p className="type-title-md-bd text-white">최근 기록</p>
-          <div className="flex h-[93px] w-full items-center justify-center rounded-16 bg-grayscale-200 p-4">
-            <div className="flex flex-col items-center gap-2 text-center">
-              <p className="type-title-md-bd text-grayscale-700">아직 기록된 일기가 없어요!</p>
-              <p className="type-body-md-md text-grayscale-500">오늘 하루를 기록하고 액땜을 적립해요</p>
-            </div>
-          </div>
+          <RecentRecordRow />
         </div>
       </div>
 
@@ -133,8 +225,10 @@ export default function Tutorial() {
       {/* coach-mark overlay */}
       <button type="button" onClick={next} className="absolute inset-0 z-40 bg-grayscale-950/90 text-left">
         {data.highlight === "record-button" && (
-          <div className="absolute left-4 right-4 top-[292px] flex items-center justify-center gap-4 rounded-16 bg-primary-200 p-4">
-            <span className="type-title-md-md text-primary-900">액땜 기록하기</span>
+          <div className="absolute left-4 right-4 top-[292px] flex items-center gap-4 rounded-16 bg-primary-200 p-4">
+            <span className="size-6 shrink-0" />
+            <span className="type-title-md-md flex-1 text-center text-primary-900">액땜 기록하기</span>
+            <Image src="/icons/arrow-right-24.svg" alt="" width={24} height={24} className="shrink-0" />
           </div>
         )}
         {data.highlight === "points-badge" && (
@@ -162,11 +256,22 @@ export default function Tutorial() {
         {data.highlight === "recent-list" && (
           <div className="absolute left-4 right-4 top-[532px] flex flex-col gap-3">
             <p className="type-title-md-bd text-white">최근 일기</p>
-            <div className="flex h-[93px] w-full items-center justify-center rounded-16 bg-grayscale-200 p-4">
-              <div className="flex flex-col items-center gap-2 text-center">
-                <p className="type-title-md-bd text-grayscale-700">아직 기록된 일기가 없어요!</p>
-                <p className="type-body-md-md text-grayscale-500">오늘 하루를 기록하고 액땜을 적립해요</p>
-              </div>
+            <RecentRecordRow />
+          </div>
+        )}
+
+        {data.arrow && (
+          <div
+            className="absolute flex items-center justify-center"
+            style={{
+              top: data.arrow.boxTop,
+              right: data.arrow.boxRight,
+              width: data.arrow.boxW,
+              height: data.arrow.boxH,
+            }}
+          >
+            <div style={{ transform: `rotate(${data.arrow.rotate}deg)` }}>
+              <Image src={data.arrow.src} alt="" width={data.arrow.innerW} height={data.arrow.innerH} />
             </div>
           </div>
         )}

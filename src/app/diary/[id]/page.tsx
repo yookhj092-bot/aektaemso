@@ -4,8 +4,8 @@ import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import SafeArea from "@/components/ui/SafeArea";
 import TopNav from "@/components/ui/TopNav";
+import EmotionDetailCard from "@/components/ui/EmotionDetailCard";
 import { useAppStore, type EmotionScore } from "@/lib/store";
-import { NEGATIVE_QUOTES, POSITIVE_QUOTES } from "@/lib/emotionQuotes";
 
 const SCORES: EmotionScore[] = [1, 3, 5, 7, 10];
 
@@ -26,7 +26,6 @@ export default function DiaryDetail() {
   }
 
   const isMisfortune = entry.type === "misfortune";
-  const quotes = isMisfortune ? NEGATIVE_QUOTES : POSITIVE_QUOTES;
   const d = new Date(entry.createdAt);
   const bubbleText = isMisfortune
     ? `이 날 ${entry.score}만큼 액땜이 쌓였어. 참 애썼다.`
@@ -74,7 +73,7 @@ export default function DiaryDetail() {
               return (
                 <div
                   key={level}
-                  className={`flex w-11 items-center justify-center rounded-full py-2 ${
+                  className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
                     active ? "border-4 border-secondary-300 bg-secondary-200" : "border-3 border-grayscale-300 bg-grayscale-200"
                   }`}
                 >
@@ -83,12 +82,7 @@ export default function DiaryDetail() {
               );
             })}
           </div>
-          <div className="flex w-full items-center gap-4 rounded-16 bg-secondary-50 p-4">
-            <div className="relative size-9 shrink-0">
-              <Image src={`/emotion/${entry.type === "misfortune" ? "negative" : "positive"}-${entry.score}.svg`} alt="" fill className="object-contain" />
-            </div>
-            <p className="type-body-lg min-w-0 flex-1 text-grayscale-900">&ldquo;{quotes[entry.score]}&rdquo;</p>
-          </div>
+          <EmotionDetailCard emotion={isMisfortune ? "negative" : "positive"} level={entry.score} />
         </div>
       </div>
     </div>

@@ -32,9 +32,9 @@ export default function TopNav(props: TopNavProps) {
   return (
     <div className={cn("flex w-full items-center gap-4 p-4", props.className)}>
       <button type="button" onClick={props.onBack} className="relative size-6 shrink-0">
-        <Image src="/icons/caret-back.svg" alt="뒤로" fill className="object-contain" />
+        <Image src="/icons/caret-back.svg" alt="뒤로" fill className="object-contain brightness-0 invert" />
       </button>
-      <p className="type-title-md-bd min-w-0 flex-1 text-center text-grayscale-900">{props.title}</p>
+      <p className="type-title-md-bd min-w-0 flex-1 text-center text-white">{props.title}</p>
       <div className="flex size-6 shrink-0 items-center justify-center">{props.right}</div>
     </div>
   );

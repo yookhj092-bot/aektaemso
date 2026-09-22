@@ -71,8 +71,8 @@ export default function My() {
         <div className="flex w-full flex-col items-start">
           <SafeArea variant="top" />
           <div className="flex w-full items-center gap-4 p-4">
-            <button type="button" onClick={() => router.back()} className="relative size-6 shrink-0">
-              <Image src="/icons/caret-back.svg" alt="뒤로" fill className="object-contain" />
+            <button type="button" onClick={() => router.push("/home")} className="relative size-6 shrink-0">
+              <Image src="/icons/caret-back.svg" alt="뒤로" fill className="object-contain brightness-0 invert" />
             </button>
             <p className="type-title-md-bd flex-1 text-center text-white">마이</p>
             <span className="size-6 shrink-0" />
@@ -100,15 +100,15 @@ export default function My() {
               </div>
             </div>
             <div className="flex w-full items-start gap-3 pb-2 text-center">
-              <div className="flex flex-1 flex-col items-start gap-1">
+              <div className="flex flex-1 flex-col items-center gap-1">
                 <p className="type-caption-md-md text-grayscale-600">이번 달 접수</p>
                 <p className="type-title-lg text-grayscale-700">{stats.count}회</p>
               </div>
-              <div className="flex flex-1 flex-col items-start gap-1">
+              <div className="flex flex-1 flex-col items-center gap-1">
                 <p className="type-caption-md-md text-grayscale-600">가장 크게 쌓인 날</p>
                 <p className="type-title-lg text-grayscale-700">{stats.biggestGainDate}</p>
               </div>
-              <div className="flex flex-1 flex-col items-start gap-1">
+              <div className="flex flex-1 flex-col items-center gap-1">
                 <p className="type-caption-md-md text-grayscale-600">최고의 잭팟</p>
                 <p className="type-title-lg text-grayscale-700">{stats.biggestSpendDate}</p>
               </div>

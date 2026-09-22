@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import SafeArea from "@/components/ui/SafeArea";
 import Button from "@/components/ui/Button";
-import { useAppStore, type DiaryEntry } from "@/lib/store";
+import { useAppStore } from "@/lib/store";
 
 type Period = "1주" | "1개월" | "3개월" | "6개월";
 type Sort = "최신순" | "과거순";
@@ -16,18 +16,6 @@ const PERIOD_DAYS: Record<Period, number> = {
   "3개월": 90,
   "6개월": 180,
 };
-
-function groupByDate(entries: DiaryEntry[]) {
-  const groups: { date: string; items: DiaryEntry[] }[] = [];
-  for (const entry of entries) {
-    const d = new Date(entry.createdAt);
-    const label = `${d.getMonth() + 1}월 ${d.getDate()}일`;
-    const last = groups[groups.length - 1];
-    if (last && last.date === label) last.items.push(entry);
-    else groups.push({ date: label, items: [entry] });
-  }
-  return groups;
-}
 
 export default function Points() {
   const router = useRouter();
@@ -63,7 +51,6 @@ export default function Points() {
     return list;
   }, [allEntries, period, sort, now]);
 
-  const groups = groupByDate(filtered);
   const monthLabel = `${new Date().getFullYear()}년 ${new Date().getMonth() + 1}월`;
 
   function applyFilter() {
@@ -139,28 +126,29 @@ export default function Points() {
 
         <p className="type-title-md-bd w-full text-grayscale-700">{monthLabel}</p>
 
-        {groups.length === 0 ? (
+        {filtered.length === 0 ? (
           <p className="type-body-md-md w-full py-8 text-center text-grayscale-400">해당 기간의 기록이 없어요</p>
         ) : (
-          groups.map((group) => (
-            <div key={group.date} className="flex w-full flex-col gap-1">
-              <p className="type-caption-md-rg text-grayscale-500">{group.date}</p>
-              {group.items.map((entry) => {
-                const isMisfortune = entry.type === "misfortune";
-                return (
-                  <div key={entry.id} className="flex w-full flex-col items-end gap-1">
-                    <div className="type-title-sm flex w-full items-center gap-4">
-                      <p className="min-w-0 flex-1 text-grayscale-900">{entry.title}</p>
-                      <p className={isMisfortune ? "text-negative-400" : "text-positive-400"}>
-                        {entry.pointsDelta > 0 ? `+${entry.pointsDelta}` : entry.pointsDelta}
-                      </p>
-                    </div>
-                    <p className="type-caption-md-rg text-grayscale-500">총 액땜 {balanceById.get(entry.id) ?? 0}</p>
+          filtered.map((entry) => {
+            const isMisfortune = entry.type === "misfortune";
+            const d = new Date(entry.createdAt);
+            return (
+              <div key={entry.id} className="flex w-full flex-col gap-1">
+                <p className="type-caption-md-rg text-grayscale-500">
+                  {d.getMonth() + 1}월 {d.getDate()}일
+                </p>
+                <div className="flex w-full flex-col items-end gap-1">
+                  <div className="type-title-sm flex w-full items-center gap-4">
+                    <p className="min-w-0 flex-1 text-grayscale-900">{entry.title}</p>
+                    <p className={isMisfortune ? "text-negative-400" : "text-positive-400"}>
+                      {entry.pointsDelta > 0 ? `+${entry.pointsDelta}` : entry.pointsDelta}
+                    </p>
                   </div>
-                );
-              })}
-            </div>
-          ))
+                  <p className="type-caption-md-rg text-grayscale-500">총 액땜 {balanceById.get(entry.id) ?? 0}</p>
+                </div>
+              </div>
+            );
+          })
         )}
       </div>
 

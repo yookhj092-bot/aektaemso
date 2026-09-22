@@ -40,11 +40,13 @@ export default function Diary() {
                     href={`/diary/${entry.id}`}
                     className="flex w-full items-end gap-4 rounded-16 bg-white p-4"
                   >
-                    <div className="flex h-full shrink-0 flex-col items-center justify-center border-r border-grayscale-100 pr-4 text-center">
-                      <p className="type-caption-md-rg w-6 text-grayscale-500">
-                        {String(d.getMonth() + 1).padStart(2, "0")}
-                      </p>
-                      <p className="type-title-md-bd w-6 text-grayscale-900">{String(d.getDate()).padStart(2, "0")}</p>
+                    <div className="flex shrink-0 self-stretch">
+                      <div className="flex h-full flex-col items-center justify-center border-r border-grayscale-100 pr-4 text-center">
+                        <p className="type-caption-md-rg w-6 text-grayscale-500">
+                          {String(d.getMonth() + 1).padStart(2, "0")}
+                        </p>
+                        <p className="type-title-md-bd w-6 text-grayscale-900">{String(d.getDate()).padStart(2, "0")}</p>
+                      </div>
                     </div>
                     <div className="flex min-w-0 flex-1 flex-col gap-2">
                       <div className="flex w-full items-center gap-2 border-b border-grayscale-100 pb-2">

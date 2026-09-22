@@ -3,13 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import Icon, { type IconName } from "./Icon";
 import SafeArea from "./SafeArea";
 
-const TABS: { href: string; label: string; icon: IconName; match: (path: string) => boolean }[] = [
-  { href: "/home", label: "홈", icon: "home", match: (p) => p === "/home" },
-  { href: "/diary", label: "일기", icon: "pencil", match: (p) => p.startsWith("/diary") },
-  { href: "/my", label: "마이", icon: "my", match: (p) => p.startsWith("/my") },
+const TABS: { href: string; label: string; icon: string; match: (path: string) => boolean }[] = [
+  { href: "/home", label: "홈", icon: "/icons/home-24.svg", match: (p) => p === "/home" },
+  { href: "/diary", label: "일기", icon: "/icons/pencil-24.svg", match: (p) => p.startsWith("/diary") },
+  { href: "/my", label: "마이", icon: "/icons/my-24.svg", match: (p) => p.startsWith("/my") },
 ];
 
 export default function BottomNav() {
@@ -27,7 +26,19 @@ export default function BottomNav() {
               className="flex min-w-0 flex-1 items-center justify-center px-4 py-3"
             >
               <span className="flex w-6 flex-col items-center gap-1">
-                <Icon name={tab.icon} className={active ? "opacity-100" : "opacity-60"} />
+                <span
+                  className={cn("size-6 shrink-0 bg-current", active ? "text-secondary-500" : "text-grayscale-400")}
+                  style={{
+                    maskImage: `url(${tab.icon})`,
+                    maskSize: "contain",
+                    maskRepeat: "no-repeat",
+                    maskPosition: "center",
+                    WebkitMaskImage: `url(${tab.icon})`,
+                    WebkitMaskSize: "contain",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                  }}
+                />
                 <span
                   className={cn(
                     "type-caption-md-md w-full text-center whitespace-nowrap",
