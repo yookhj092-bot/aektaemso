@@ -240,7 +240,7 @@ export default function Tutorial() {
           </div>
         )}
         {data.highlight === "week-calendar" && (
-          <div className="absolute left-4 right-4 top-[232px] flex flex-col gap-3">
+          <div className="absolute left-4 right-4 top-[364px] flex flex-col gap-3">
             <p className="type-title-md-bd text-white">이번주 액땜 적립 현황</p>
             <div className="flex w-full items-center rounded-16 bg-white p-4">
               {DUMMY_DAYS.map((day, i) => (
