@@ -20,6 +20,7 @@ function ChevronRight() {
 export default function My() {
   const router = useRouter();
   const nickname = useAppStore((s) => s.nickname);
+  const profileImageUrl = useAppStore((s) => s.profileImageUrl);
   const joinedAt = useAppStore((s) => s.joinedAt);
   const points = useAppStore((s) => s.points);
   const entries = useAppStore((s) => s.entries);
@@ -84,7 +85,13 @@ export default function My() {
 
         <div className="flex w-full flex-col items-start gap-4 px-4 pb-4">
           <div className="flex w-full items-center gap-4 rounded-16 bg-secondary-700 p-4">
-            <div className="size-12 shrink-0 rounded-full bg-secondary-500" />
+            {profileImageUrl ? (
+              <div className="relative size-12 shrink-0 overflow-hidden rounded-full bg-secondary-500">
+                <Image src={profileImageUrl} alt="" fill className="object-cover" />
+              </div>
+            ) : (
+              <div className="size-12 shrink-0 rounded-full bg-secondary-500" />
+            )}
             <div className="flex min-w-0 flex-1 flex-col gap-2">
               <div className="flex items-end gap-3">
                 <p className="type-title-md-bd text-white">{nickname}</p>

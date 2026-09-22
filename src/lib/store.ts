@@ -29,6 +29,7 @@ type AppState = {
   loggedIn: boolean;
   tutorialSeen: boolean;
   nickname: string;
+  profileImageUrl: string | null;
   joinedAt: string | null;
   points: number;
   entries: DiaryEntry[];
@@ -37,6 +38,7 @@ type AppState = {
   logout: () => void;
   markTutorialSeen: () => void;
   setNickname: (nickname: string) => void;
+  setProfileImageUrl: (url: string | null) => void;
   addEntry: (type: EntryType, title: string, body: string, score: EmotionScore) => AddEntryResult;
   removeEntry: (id: string) => void;
   resetAccount: () => void;
@@ -49,6 +51,7 @@ export const useAppStore = create<AppState>()(
       loggedIn: false,
       tutorialSeen: false,
       nickname: "소연",
+      profileImageUrl: null,
       joinedAt: null,
       points: 0,
       entries: [],
@@ -58,6 +61,7 @@ export const useAppStore = create<AppState>()(
       logout: () => set({ loggedIn: false }),
       markTutorialSeen: () => set({ tutorialSeen: true }),
       setNickname: (nickname) => set({ nickname }),
+      setProfileImageUrl: (profileImageUrl) => set({ profileImageUrl }),
 
       addEntry: (type, title, body, score) => {
         const current = get().points;
@@ -99,6 +103,7 @@ export const useAppStore = create<AppState>()(
           onboarded: false,
           loggedIn: false,
           tutorialSeen: false,
+          profileImageUrl: null,
           joinedAt: null,
           points: 0,
           entries: [],

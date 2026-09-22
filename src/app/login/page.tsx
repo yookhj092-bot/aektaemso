@@ -12,6 +12,7 @@ export default function Login() {
   const router = useRouter();
   const login = useAppStore((s) => s.login);
   const setNickname = useAppStore((s) => s.setNickname);
+  const setProfileImageUrl = useAppStore((s) => s.setProfileImageUrl);
   const [pending, setPending] = useState(false);
 
   async function handleKakaoLogin() {
@@ -19,7 +20,10 @@ export default function Login() {
     try {
       const profile = await kakaoLogin();
       const nickname = profile?.kakao_account?.profile?.nickname ?? profile?.properties?.nickname;
+      const profileImageUrl =
+        profile?.kakao_account?.profile?.profile_image_url ?? profile?.properties?.profile_image;
       if (nickname) setNickname(nickname);
+      if (profileImageUrl) setProfileImageUrl(profileImageUrl);
       login();
       router.push("/home");
     } catch (error) {

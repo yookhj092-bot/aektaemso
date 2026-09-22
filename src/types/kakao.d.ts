@@ -8,6 +8,7 @@ export type KakaoUserMeResponse = {
   };
   properties?: {
     nickname?: string;
+    profile_image?: string;
   };
 };
 
