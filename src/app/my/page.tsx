@@ -71,7 +71,7 @@ export default function My() {
 
   return (
     <div className="flex min-h-dvh w-full flex-col justify-between bg-secondary-800">
-      <div className="flex w-full flex-col items-start">
+      <div className="flex w-full flex-1 flex-col items-start">
         <div className="flex w-full flex-col items-start">
           <SafeArea variant="top" />
           <div className="flex w-full items-center gap-4 p-4">
@@ -83,7 +83,7 @@ export default function My() {
           </div>
         </div>
 
-        <div className="flex w-full flex-col items-start gap-4 px-4 pb-4">
+        <div className="flex w-full flex-1 flex-col items-start gap-4 px-4 pb-4">
           <div className="flex w-full items-center gap-4 rounded-16 bg-secondary-700 p-4">
             {profileImageUrl ? (
               <div className="relative size-12 shrink-0 overflow-hidden rounded-full bg-secondary-500">
@@ -160,7 +160,7 @@ export default function My() {
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-2 pt-4">
+          <div className="mt-auto flex w-full flex-col items-center gap-2 pt-4">
             <button type="button" onClick={handleLogout} className="type-body-md-md text-grayscale-400">
               로그아웃
             </button>

@@ -50,6 +50,7 @@ export default function Login() {
           alt=""
           fill
           className="object-contain"
+          quality={100}
           priority
         />
       </div>

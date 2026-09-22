@@ -130,6 +130,7 @@ export default function Onboarding() {
               alt=""
               fill
               className="object-contain"
+              quality={100}
               priority
             />
           </div>
