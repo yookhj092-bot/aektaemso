@@ -134,6 +134,14 @@
   --radius-20: 20px;
 }
 
+html {
+  /* Reserve the scrollbar's width permanently so navigating between a short
+     page (no scroll) and a tall page (scrollbar appears) doesn't shift the
+     centered app-shell horizontally. */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);

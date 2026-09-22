@@ -53,6 +53,7 @@ function StampCharacter({ stamp, type }: { stamp: string; type: "misfortune" | "
           <img src="/characters/onboarding/vector1.svg" alt="" className="block size-full" />
         </div>
       </div>
+      <StampMark type={type} ringSize={93} />
       <div
         className="absolute flex items-center justify-center"
         style={{ containerType: "size", inset: "-8.82% -7.25% 26.51% 44.22%" }}
@@ -62,7 +63,6 @@ function StampCharacter({ stamp, type }: { stamp: string; type: "misfortune" | "
           <img src={stamp} alt="" className="block size-full" />
         </div>
       </div>
-      <StampMark type={type} />
     </div>
   );
 }
