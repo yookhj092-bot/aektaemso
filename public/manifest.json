@@ -1,0 +1,17 @@
+{
+  "name": "액땜소",
+  "short_name": "액땜소",
+  "description": "액땜은 적립하고, 좋은 일은 크게 받자!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#281c53",
+  "icons": [
+    {
+      "src": "/brand/logo-primary.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

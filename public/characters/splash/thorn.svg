@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24.6596" height="29.3765" viewBox="0 0 24.6596 29.3765" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="thorn" filter="url(#filter0_i_0_87)">
+<path d="M10.6334 0.837334C11.4687 -0.451646 13.4235 -0.204967 13.9124 1.25112L15.3255 5.45935C16.866 10.0474 18.9407 14.4385 21.5067 18.5421L24.1821 22.8208C25.2079 24.4613 24.5159 26.6304 22.7295 27.3737C16.311 30.0442 9.09253 30.0442 2.67411 27.3737L2.04985 27.1139C0.46842 26.4559 -0.355144 24.7049 0.14654 23.0672L1.18787 19.6678C2.82787 14.314 5.20459 9.21441 8.24971 4.51554L10.6334 0.837334Z" fill="#F59F9F"/>
+</g>
+<defs>
+<filter id="filter0_i_0_87" x="-5.02589" y="0" width="29.6855" height="33.146" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-5.02589" dy="3.76942"/>
+<feGaussianBlur stdDeviation="2.51294"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.764565 0 0 0 0 0.213172 0 0 0 0 0.213172 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_87"/>
+</filter>
+</defs>
+</svg>

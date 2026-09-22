@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="emotion">
+<path d="M0 12C0 5.37258 5.37258 0 12 0H24C30.6274 0 36 5.37258 36 12V24C36 30.6274 30.6274 36 24 36H12C5.37258 36 0 30.6274 0 24V12Z" fill="#FCD200"/>
+<path id="Ellipse 20" d="M16 14C16 16.2091 13.0899 18 9.5 18C5.91015 18 3 16.2091 3 14" stroke="#1B202A" stroke-width="2" stroke-linecap="round"/>
+<path id="Ellipse 21" d="M33 14C33 16.2091 30.0899 18 26.5 18C22.9101 18 20 16.2091 20 14" stroke="#1B202A" stroke-width="2" stroke-linecap="round"/>
+<line id="eye" x1="0.5" y1="-0.5" x2="1.91347" y2="-0.5" transform="matrix(-0.0898739 0.995953 -0.997741 -0.0671736 3.2168 20)" stroke="#E98787" stroke-linecap="round"/>
+<line id="eye_2" x1="0.5" y1="-0.5" x2="1.91347" y2="-0.5" transform="matrix(-0.0898739 0.995953 -0.997741 -0.0671736 30.2168 20)" stroke="#E98787" stroke-linecap="round"/>
+<line id="eye_3" x1="0.5" y1="-0.5" x2="1.91347" y2="-0.5" transform="matrix(-0.0898739 0.995953 -0.997741 -0.0671736 4.91797 20.0547)" stroke="#E98787" stroke-linecap="round"/>
+<line id="eye_4" x1="0.5" y1="-0.5" x2="1.91347" y2="-0.5" transform="matrix(-0.0898739 0.995953 -0.997741 -0.0671736 31.918 20.0547)" stroke="#E98787" stroke-linecap="round"/>
+</g>
+</svg>

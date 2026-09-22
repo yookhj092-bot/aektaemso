@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="emotion">
+<path d="M0 12C0 5.37258 5.37258 0 12 0H24C30.6274 0 36 5.37258 36 12V24C36 30.6274 30.6274 36 24 36H12C5.37258 36 0 30.6274 0 24V12Z" fill="#FCD200"/>
+<line id="eye" x1="4" y1="15" x2="15" y2="15" stroke="#1B202A" stroke-width="2" stroke-linecap="round"/>
+<line id="eye_2" x1="0.5" y1="-0.5" x2="1.91347" y2="-0.5" transform="matrix(-0.0898739 0.995953 -0.997741 -0.0671736 16.376 10)" stroke="#606C80" stroke-linecap="round"/>
+<line id="eye_3" x1="0.5" y1="-0.5" x2="1.91347" y2="-0.5" transform="matrix(-0.0898739 0.995953 -0.997741 -0.0671736 18.0771 10.0547)" stroke="#606C80" stroke-linecap="round"/>
+<line id="eye_4" x1="20" y1="15" x2="31" y2="15" stroke="#1B202A" stroke-width="2" stroke-linecap="round"/>
+</g>
+</svg>

@@ -1,0 +1,36 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="39" viewBox="0 0 48 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="emotion">
+<g id="emotion/positive/5">
+<g clip-path="url(#clip0_0_213)">
+<path d="M7 12C7 5.37258 12.3726 0 19 0H31C37.6274 0 43 5.37258 43 12V24C43 30.6274 37.6274 36 31 36H19C12.3726 36 7 30.6274 7 24V12Z" fill="#FF9FD2"/>
+<g id="Ellipse 11" opacity="0.6" filter="url(#filter0_f_0_213)">
+<ellipse cx="11.9415" cy="25.1216" rx="8.62036" ry="10.8904" transform="rotate(-32.815 11.9415 25.1216)" fill="#FD5AA9"/>
+</g>
+<g id="Ellipse 22" opacity="0.6" filter="url(#filter1_f_0_213)">
+<ellipse cx="8.62036" cy="10.8904" rx="8.62036" ry="10.8904" transform="matrix(-0.840425 -0.541928 -0.541928 0.840425 51.0879 20.6406)" fill="#FD5AA9"/>
+</g>
+<path id="Ellipse 20" d="M23 18C23 15.7909 20.0899 14 16.5 14C12.9101 14 10 15.7909 10 18" stroke="#1B202A" stroke-width="2" stroke-linecap="round"/>
+<path id="Ellipse 21" d="M40 18C40 15.7909 37.0899 14 33.5 14C29.9101 14 27 15.7909 27 18" stroke="#1B202A" stroke-width="2" stroke-linecap="round"/>
+<path id="Rectangle 13" d="M19 20.5455C19 20.2442 19.2442 20 19.5455 20H30.4545C30.7558 20 31 20.2442 31 20.5455C31 23.5579 28.5579 26 25.5455 26H24.4545C21.4421 26 19 23.5579 19 20.5455Z" fill="#F35C5C"/>
+</g>
+</g>
+<path id="heart" d="M48 29.5219C48 34.6273 40.5864 38.7597 40.2707 38.9304C40.1875 38.9761 40.0945 39 40 39C39.9055 39 39.8125 38.9761 39.7293 38.9304C39.4136 38.7597 32 34.6273 32 29.5219C32.0013 28.323 32.4683 27.1737 33.2986 26.3259C34.1288 25.4782 35.2544 25.0014 36.4286 25C37.9036 25 39.195 25.6477 40 26.7424C40.805 25.6477 42.0964 25 43.5714 25C44.7456 25.0014 45.8712 25.4782 46.7014 26.3259C47.5317 27.1737 47.9987 28.323 48 29.5219Z" fill="#E52020"/>
+<path id="heart_2" d="M12 5.93796C12 8.12597 8.75656 9.89702 8.61844 9.97016C8.58203 9.98975 8.54134 10 8.5 10C8.45866 10 8.41797 9.98975 8.38156 9.97016C8.24344 9.89702 5 8.12597 5 5.93796C5.00058 5.42416 5.20489 4.93157 5.56812 4.56825C5.93135 4.20494 6.42382 4.00058 6.9375 4C7.58281 4 8.14781 4.27757 8.5 4.74674C8.85219 4.27757 9.41719 4 10.0625 4C10.5762 4.00058 11.0687 4.20494 11.4319 4.56825C11.7951 4.93157 11.9994 5.42416 12 5.93796Z" fill="#E52020"/>
+<path id="heart_3" d="M11 23.2299C11 26.8766 5.90317 29.8284 5.68612 29.9503C5.62891 29.9829 5.56496 30 5.5 30C5.43504 30 5.37109 29.9829 5.31388 29.9503C5.09683 29.8284 0 26.8766 0 23.2299C0.000909826 22.3736 0.321976 21.5526 0.89276 20.9471C1.46354 20.3416 2.23743 20.001 3.04464 20C4.05871 20 4.94656 20.4626 5.5 21.2446C6.05344 20.4626 6.9413 20 7.95536 20C8.76257 20.001 9.53646 20.3416 10.1072 20.9471C10.678 21.5526 10.9991 22.3736 11 23.2299Z" fill="#E52020"/>
+</g>
+<defs>
+<filter id="filter0_f_0_213" x="-5.4032" y="6.84353" width="34.6894" height="36.5561" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_0_213"/>
+</filter>
+<filter id="filter1_f_0_213" x="20.5966" y="6.84353" width="34.6894" height="36.5561" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_0_213"/>
+</filter>
+<clipPath id="clip0_0_213">
+<path d="M7 12C7 5.37258 12.3726 0 19 0H31C37.6274 0 43 5.37258 43 12V24C43 30.6274 37.6274 36 31 36H19C12.3726 36 7 30.6274 7 24V12Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
