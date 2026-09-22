@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, type FocusEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SafeArea from "@/components/ui/SafeArea";
@@ -35,10 +35,21 @@ function WriteForm() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [score, setScore] = useState<EmotionScore | null>(null);
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   const copy = COPY[type];
   const canSubmit = title.trim().length > 0 && body.trim().length > 0 && score !== null;
   const charCount = title.length + body.length;
+
+  function handleFieldFocus(e: FocusEvent<HTMLElement>) {
+    setKeyboardOpen(true);
+    const target = e.currentTarget;
+    setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "center" }), 300);
+  }
+
+  function handleFieldBlur() {
+    setKeyboardOpen(false);
+  }
 
   function handleSubmit() {
     if (!canSubmit || score === null) return;
@@ -68,12 +79,16 @@ function WriteForm() {
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value.slice(0, 60))}
+                onFocus={handleFieldFocus}
+                onBlur={handleFieldBlur}
                 placeholder="제목"
                 className="type-title-md-bd w-full border-b border-grayscale-100 pb-2 text-grayscale-950 placeholder:text-grayscale-400 focus:outline-none"
               />
               <textarea
                 value={body}
                 onChange={(e) => setBody(e.target.value.slice(0, 1000 - title.length))}
+                onFocus={handleFieldFocus}
+                onBlur={handleFieldBlur}
                 placeholder={copy.placeholder}
                 className="type-body-md-md w-full flex-1 resize-none text-grayscale-800 placeholder:text-grayscale-400 focus:outline-none"
               />
@@ -112,6 +127,8 @@ function WriteForm() {
           작성 완료
         </Button>
       </div>
+
+      {keyboardOpen && <div aria-hidden className="w-full shrink-0" style={{ height: "45vh" }} />}
     </div>
   );
 }

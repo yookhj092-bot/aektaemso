@@ -24,14 +24,47 @@ export default function Diary() {
           <p className="type-title-md-bd text-white">최근 일기</p>
 
           {entries.length === 0 ? (
-            <div className="flex w-full flex-col items-center gap-4 py-10">
-              <div className="relative size-[200px] shrink-0 overflow-hidden rounded-full">
-                <Image src="/characters/diary/diary-empty.png" alt="" fill className="object-cover" />
+            <div className="flex w-full flex-col items-center gap-6 py-6">
+              <div className="relative flex shrink-0 items-center justify-center" style={{ width: 324, height: 344 }}>
+                <div className="relative scale-[1.2]" style={{ width: 270, height: 287 }}>
+                  <div
+                    className="absolute"
+                    style={{
+                      aspectRatio: "1145 / 1374",
+                      left: "-3.7%",
+                      right: 0,
+                      top: -32,
+                      maskImage: "url(/characters/diary/diary-empty-mask.svg)",
+                      WebkitMaskImage: "url(/characters/diary/diary-empty-mask.svg)",
+                      maskSize: "286px 303px",
+                      WebkitMaskSize: "286px 303px",
+                      maskPosition: "2px 24px",
+                      WebkitMaskPosition: "2px 24px",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskRepeat: "no-repeat",
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/characters/diary/diary-empty-raw.png"
+                      alt=""
+                      className="absolute inset-0 size-full max-w-none object-cover"
+                    />
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col items-center gap-2 text-center">
                 <p className="type-title-md-bd text-white">아직 기록된 일기가 없어요!</p>
                 <p className="type-body-md-md text-grayscale-400">오늘 하루를 기록하고 액땜을 적립해요</p>
               </div>
+              <Link
+                href="/journal"
+                className="flex w-full items-center justify-center gap-4 rounded-16 bg-primary-200 p-4"
+              >
+                <span className="size-6 shrink-0" />
+                <span className="type-title-md-md flex-1 text-center text-primary-900">액땜 기록하기</span>
+                <Image src="/icons/arrow-right-24.svg" alt="" width={24} height={24} className="shrink-0" />
+              </Link>
             </div>
           ) : (
             <div className="flex w-full flex-col gap-3">

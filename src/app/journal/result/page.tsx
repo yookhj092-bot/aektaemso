@@ -46,7 +46,7 @@ export default function JournalResult() {
               alt=""
               width={186}
               height={186}
-              className="absolute bottom-0 left-0 object-contain opacity-0 [animation:stamp-burst_0.4s_ease-out_0.55s_forwards]"
+              className="absolute bottom-0 left-0 object-contain"
             />
             <Image
               src={isMisfortune ? "/characters/onboarding/stamp-2.svg" : "/characters/onboarding/stamp-3.svg"}

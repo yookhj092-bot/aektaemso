@@ -48,7 +48,7 @@ function StampCharacter({ stamp, type }: { stamp: string; type: "misfortune" | "
   return (
     <div className="relative h-[227px] w-[276px]">
       <div className="absolute inset-[32.82%_24.16%_0_0]">
-        <div className="absolute inset-[0.35%_3.27%_0.94%_0.44%] opacity-0 [animation:stamp-burst_0.4s_ease-out_0.55s_forwards]">
+        <div className="absolute inset-[0.35%_3.27%_0.94%_0.44%]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/characters/onboarding/vector1.svg" alt="" className="block size-full" />
         </div>

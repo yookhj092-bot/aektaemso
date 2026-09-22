@@ -7,17 +7,18 @@ import { useAppStore } from "@/lib/store";
 
 export default function Splash() {
   const router = useRouter();
-  const onboarded = useAppStore((s) => s.onboarded);
-  const loggedIn = useAppStore((s) => s.loggedIn);
 
+  // Read store state at fire-time (not as effect deps) so zustand's persist
+  // rehydration re-render doesn't reset/re-schedule this timer.
   useEffect(() => {
     const timer = setTimeout(() => {
+      const { onboarded, loggedIn } = useAppStore.getState();
       if (!onboarded) router.replace("/onboarding");
       else if (!loggedIn) router.replace("/login");
       else router.replace("/home");
     }, 3500);
     return () => clearTimeout(timer);
-  }, [onboarded, loggedIn, router]);
+  }, [router]);
 
   return (
     <div className="relative flex size-full min-h-dvh flex-col overflow-hidden bg-gradient-to-b from-secondary-800 to-secondary-600">

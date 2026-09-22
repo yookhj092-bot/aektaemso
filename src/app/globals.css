@@ -323,18 +323,12 @@ body {
     transform: translateY(0) scale(1) rotate(36deg);
   }
 }
-@keyframes stamp-burst {
+@keyframes stamp-mark-dissolve {
   0% {
     opacity: 0;
-    transform: scale(0.5);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.15);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
