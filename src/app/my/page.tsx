@@ -85,7 +85,9 @@ export default function My() {
             <div className="flex min-w-0 flex-1 flex-col gap-2">
               <div className="flex items-end gap-3">
                 <p className="type-title-md-bd text-white">{nickname}</p>
-                <Image src="/icons/edit-pencil-16.svg" alt="" width={16} height={16} />
+                <button type="button" onClick={() => router.push("/my/edit-nickname")} className="relative size-4 shrink-0">
+                  <Image src="/icons/edit-pencil-16.svg" alt="닉네임 수정" fill />
+                </button>
               </div>
               <p className="type-body-md-md text-grayscale-400">액땜소를 이용한지 {daysUsed}일째</p>
             </div>

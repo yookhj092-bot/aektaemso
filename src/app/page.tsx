@@ -15,7 +15,7 @@ export default function Splash() {
       if (!onboarded) router.replace("/onboarding");
       else if (!loggedIn) router.replace("/login");
       else router.replace("/home");
-    }, 1400);
+    }, 3500);
     return () => clearTimeout(timer);
   }, [onboarded, loggedIn, router]);
 

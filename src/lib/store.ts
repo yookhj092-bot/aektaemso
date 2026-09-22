@@ -36,6 +36,7 @@ type AppState = {
   login: () => void;
   logout: () => void;
   markTutorialSeen: () => void;
+  setNickname: (nickname: string) => void;
   addEntry: (type: EntryType, title: string, body: string, score: EmotionScore) => AddEntryResult;
   removeEntry: (id: string) => void;
   resetAccount: () => void;
@@ -56,6 +57,7 @@ export const useAppStore = create<AppState>()(
       login: () => set({ loggedIn: true, joinedAt: get().joinedAt ?? new Date().toISOString() }),
       logout: () => set({ loggedIn: false }),
       markTutorialSeen: () => set({ tutorialSeen: true }),
+      setNickname: (nickname) => set({ nickname }),
 
       addEntry: (type, title, body, score) => {
         const current = get().points;

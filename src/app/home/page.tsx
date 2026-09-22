@@ -144,6 +144,7 @@ export default function Home() {
         <div className="flex w-full flex-col gap-3">
           <Link href="/diary" className="flex w-full items-center gap-4">
             <p className="type-title-md-bd flex-1 text-white">최근 기록</p>
+            <Image src="/icons/caret-right-16.svg" alt="" width={16} height={16} className="shrink-0" />
           </Link>
 
           {recent.length === 0 ? (

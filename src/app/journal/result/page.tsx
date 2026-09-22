@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import SafeArea from "@/components/ui/SafeArea";
 import Button from "@/components/ui/Button";
+import StampMark from "@/components/ui/StampMark";
 import { useAppStore } from "@/lib/store";
 
 const HEADLINE = {
@@ -54,6 +55,7 @@ export default function JournalResult() {
               height={140}
               className="absolute right-0 top-0 origin-center opacity-0 [animation:stamp-drop_0.5s_cubic-bezier(0.34,1.56,0.64,1)_0.15s_forwards]"
             />
+            <StampMark type={entry.type} />
           </div>
 
           <div className="flex w-full flex-col items-center gap-3">

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import SafeArea from "@/components/ui/SafeArea";
 import TopNav from "@/components/ui/TopNav";
 import BottomNav from "@/components/ui/BottomNav";
@@ -16,17 +17,20 @@ export default function Diary() {
       <div className="flex w-full flex-col items-start">
         <div className="flex w-full flex-col items-start">
           <SafeArea variant="top" />
-          <TopNav variant="title" title="나의 일기" onBack={() => router.back()} />
+          <TopNav variant="title" title="나의 일기" onBack={() => router.push("/home")} />
         </div>
 
         <div className="flex w-full flex-col items-start gap-4 px-4 pb-4">
           <p className="type-title-md-bd text-white">최근 일기</p>
 
           {entries.length === 0 ? (
-            <div className="flex h-[93px] w-full items-center justify-center rounded-16 bg-grayscale-200 p-4">
+            <div className="flex w-full flex-col items-center gap-4 py-10">
+              <div className="relative size-[200px] shrink-0 overflow-hidden rounded-full">
+                <Image src="/characters/diary/diary-empty.png" alt="" fill className="object-cover" />
+              </div>
               <div className="flex flex-col items-center gap-2 text-center">
-                <p className="type-title-md-bd text-grayscale-700">아직 기록된 일기가 없어요!</p>
-                <p className="type-body-md-md text-grayscale-500">오늘 하루를 기록하고 액땜을 적립해요</p>
+                <p className="type-title-md-bd text-white">아직 기록된 일기가 없어요!</p>
+                <p className="type-body-md-md text-grayscale-400">오늘 하루를 기록하고 액땜을 적립해요</p>
               </div>
             </div>
           ) : (

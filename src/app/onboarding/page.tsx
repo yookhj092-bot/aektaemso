@@ -7,6 +7,7 @@ import Pagination from "@/components/ui/Pagination";
 import TextButton from "@/components/ui/TextButton";
 import Button from "@/components/ui/Button";
 import SafeArea from "@/components/ui/SafeArea";
+import StampMark from "@/components/ui/StampMark";
 import { useAppStore } from "@/lib/store";
 
 const STEPS = [
@@ -43,11 +44,11 @@ const STEPS = [
   },
 ];
 
-function StampCharacter({ stamp }: { stamp: string }) {
+function StampCharacter({ stamp, type }: { stamp: string; type: "misfortune" | "fortune" }) {
   return (
     <div className="relative h-[227px] w-[276px]">
       <div className="absolute inset-[32.82%_24.16%_0_0]">
-        <div className="absolute inset-[0.35%_3.27%_0.94%_0.44%]">
+        <div className="absolute inset-[0.35%_3.27%_0.94%_0.44%] opacity-0 [animation:stamp-burst_0.4s_ease-out_0.55s_forwards]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/characters/onboarding/vector1.svg" alt="" className="block size-full" />
         </div>
@@ -56,11 +57,12 @@ function StampCharacter({ stamp }: { stamp: string }) {
         className="absolute flex items-center justify-center"
         style={{ containerType: "size", inset: "-8.82% -7.25% 26.51% 44.22%" }}
       >
-        <div className="h-[hypot(-53.1519cqw,68.3052cqh)] w-[hypot(46.8481cqw,31.6948cqh)] rotate-[35.96deg]">
+        <div className="h-[hypot(-53.1519cqw,68.3052cqh)] w-[hypot(46.8481cqw,31.6948cqh)] origin-center opacity-0 [animation:stamp-drop_0.5s_cubic-bezier(0.34,1.56,0.64,1)_0.15s_forwards]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={stamp} alt="" className="block size-full" />
         </div>
       </div>
+      <StampMark type={type} />
     </div>
   );
 }
@@ -127,12 +129,16 @@ export default function Onboarding() {
               src="/characters/onboarding/onboarding-1.png"
               alt=""
               fill
-              className="scale-[1.4] object-contain"
+              className="object-contain"
               priority
             />
           </div>
         ) : (
-          <StampCharacter stamp={step === 2 ? "/characters/onboarding/stamp-2.svg" : "/characters/onboarding/stamp-3.svg"} />
+          <StampCharacter
+            key={step}
+            stamp={step === 2 ? "/characters/onboarding/stamp-2.svg" : "/characters/onboarding/stamp-3.svg"}
+            type={step === 2 ? "misfortune" : "fortune"}
+          />
         )}
       </div>
 
