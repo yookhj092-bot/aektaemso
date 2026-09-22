@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { pretendard, cafe24Ssurround } from "./fonts";
+import KakaoInit from "@/components/KakaoInit";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${pretendard.variable} ${cafe24Ssurround.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-grayscale-100">
+        <KakaoInit />
         <div className="app-shell">{children}</div>
       </body>
     </html>

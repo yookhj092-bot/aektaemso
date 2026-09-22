@@ -7,6 +7,7 @@ import Image from "next/image";
 import SafeArea from "@/components/ui/SafeArea";
 import BottomNav from "@/components/ui/BottomNav";
 import { useAppStore } from "@/lib/store";
+import { kakaoLogout } from "@/lib/kakao";
 
 function ChevronRight() {
   return (
@@ -55,12 +56,14 @@ export default function My() {
     };
   }, [entries]);
 
-  function handleLogout() {
+  async function handleLogout() {
+    await kakaoLogout();
     logout();
     router.push("/login");
   }
 
-  function handleLeave() {
+  async function handleLeave() {
+    await kakaoLogout();
     resetAccount();
     router.push("/");
   }

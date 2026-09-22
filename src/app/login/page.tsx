@@ -1,18 +1,32 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
 import { useAppStore } from "@/lib/store";
+import { kakaoLogin } from "@/lib/kakao";
 
 export default function Login() {
   const router = useRouter();
   const login = useAppStore((s) => s.login);
+  const setNickname = useAppStore((s) => s.setNickname);
+  const [pending, setPending] = useState(false);
 
-  function handleKakaoLogin() {
-    login();
-    router.push("/home");
+  async function handleKakaoLogin() {
+    setPending(true);
+    try {
+      const profile = await kakaoLogin();
+      const nickname = profile?.kakao_account?.profile?.nickname ?? profile?.properties?.nickname;
+      if (nickname) setNickname(nickname);
+      login();
+      router.push("/home");
+    } catch (error) {
+      console.error("카카오 로그인 실패", error);
+    } finally {
+      setPending(false);
+    }
   }
 
   return (
@@ -36,7 +50,7 @@ export default function Login() {
         />
       </div>
 
-      <Button variant="login" onClick={handleKakaoLogin} className="relative z-10" />
+      <Button variant="login" onClick={handleKakaoLogin} disabled={pending} className="relative z-10" />
     </div>
   );
 }
