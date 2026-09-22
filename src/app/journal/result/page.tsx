@@ -40,13 +40,19 @@ export default function JournalResult() {
 
         <div className="flex w-full flex-col items-center gap-10 px-4 py-5">
           <div className="relative h-[227px] w-[276px]">
-            <Image src="/characters/onboarding/vector1.svg" alt="" width={186} height={186} className="absolute bottom-0 left-0 object-contain" />
+            <Image
+              src="/characters/onboarding/vector1.svg"
+              alt=""
+              width={186}
+              height={186}
+              className="absolute bottom-0 left-0 object-contain opacity-0 [animation:stamp-burst_0.4s_ease-out_0.55s_forwards]"
+            />
             <Image
               src={isMisfortune ? "/characters/onboarding/stamp-2.svg" : "/characters/onboarding/stamp-3.svg"}
               alt=""
               width={140}
               height={140}
-              className="absolute right-0 top-0 rotate-[36deg]"
+              className="absolute right-0 top-0 origin-center opacity-0 [animation:stamp-drop_0.5s_cubic-bezier(0.34,1.56,0.64,1)_0.15s_forwards]"
             />
           </div>
 
@@ -69,7 +75,7 @@ export default function JournalResult() {
             </div>
             {entry.overDeduction && (
               <p className="type-caption-md-rg text-center text-grayscale-300">
-                보유 포인트보다 커서 남은 포인트만 차감했어요
+                쌓아둔 액땜을 다 넘어서는 행운이 찾아왔어요! 남은 액땜은 0으로 싹 비워드렸어요
               </p>
             )}
           </div>

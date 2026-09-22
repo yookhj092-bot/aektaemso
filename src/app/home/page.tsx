@@ -60,7 +60,9 @@ export default function Home() {
                 className="flex items-center gap-2 rounded-12 bg-white p-2"
                 onClick={() => router.push("/tutorial")}
               >
-                <Image src="/icons/tutorial-20.svg" alt="" width={20} height={20} />
+                <span className="relative size-5 shrink-0">
+                  <Image src="/icons/tutorial-20.svg" alt="" fill className="object-contain" />
+                </span>
               </button>
               <Link href="/points" className="flex items-center gap-2 rounded-12 bg-white p-2">
                 <Image src="/icons/points-badge.svg" alt="" width={20} height={20} />
@@ -69,7 +71,7 @@ export default function Home() {
             </div>
 
             <div className="absolute left-1/2 top-[27.55%] bottom-[-16.27%] flex w-[190px] -translate-x-1/2 flex-col items-center">
-              <div className="relative z-10 mb-[-16px] w-full shrink-0 rounded-16 bg-primary-100 p-4">
+              <div className="relative mb-[-16px] w-full shrink-0 rounded-16 bg-primary-100 p-4">
                 <p className="type-body-md-md text-grayscale-800">오늘은 무슨 일이 있어서 왔어?</p>
                 <span className="absolute -bottom-1.5 left-5 h-2.5 w-3 -scale-y-100">
                   <Image src="/icons/bubble-tail.svg" alt="" fill />
@@ -84,7 +86,7 @@ export default function Home() {
                   style={{ height: "138.87%", width: "155.39%", left: "-27.63%", top: "-19.6%", maxWidth: "none" }}
                 />
               </div>
-              <div className="relative h-[137.895px] w-[120px] shrink-0 overflow-hidden">
+              <div className="relative z-10 h-[137.895px] w-[120px] shrink-0 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/characters/home/home-character-2.png"
@@ -112,7 +114,7 @@ export default function Home() {
             {week.map((date) => {
               const entry = entryFor(entries, date);
               const isToday = sameDay(date, today);
-              const isFuture = date >= todayMidnight;
+              const isFuture = date > todayMidnight;
 
               return (
                 <div

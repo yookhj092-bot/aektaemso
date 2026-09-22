@@ -305,6 +305,39 @@ body {
   letter-spacing: 0;
 }
 
+/* ---- Journal result: stamp interaction ---- */
+@keyframes stamp-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-70px) scale(1.8) rotate(36deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(0) scale(0.88) rotate(36deg);
+  }
+  75% {
+    transform: translateY(0) scale(1.12) rotate(36deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(36deg);
+  }
+}
+@keyframes stamp-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* App shell: mobile-first, centered on wider viewports */
 @utility app-shell {
   width: 100%;

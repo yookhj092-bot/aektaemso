@@ -175,7 +175,9 @@ export default function Tutorial() {
           <div className="relative h-[196px] w-full overflow-hidden rounded-16 bg-gradient-to-t from-secondary-800 to-secondary-500">
             <div className="absolute left-2 right-2 top-2 flex items-center justify-between">
               <span className="flex items-center gap-2 rounded-12 bg-white p-2">
-                <Image src="/icons/tutorial-20.svg" alt="" width={20} height={20} />
+                <span className="relative size-5 shrink-0">
+                  <Image src="/icons/tutorial-20.svg" alt="" fill className="object-contain" />
+                </span>
               </span>
               <span className="flex items-center gap-2 rounded-12 bg-white p-2">
                 <Image src="/icons/points-badge.svg" alt="" width={20} height={20} />

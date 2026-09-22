@@ -66,12 +66,10 @@ export const useAppStore = create<AppState>()(
         if (type === "misfortune") {
           delta = score;
         } else {
+          delta = -score;
           if (score > current) {
             overDeduction = true;
             overAmount = score - current;
-            delta = -current;
-          } else {
-            delta = -score;
           }
         }
 
