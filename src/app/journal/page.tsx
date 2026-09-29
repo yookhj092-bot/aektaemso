@@ -24,7 +24,12 @@ export default function JournalChoice() {
             </span>
           </div>
           <div className="relative h-[265px] w-[187px]">
-            <Image src="/characters/journal/journal-default.svg" alt="" fill className="object-contain" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/characters/journal/journal-default.png"
+              alt=""
+              className="absolute inset-0 size-full object-contain"
+            />
           </div>
         </div>
 

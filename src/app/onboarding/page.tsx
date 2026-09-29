@@ -125,13 +125,11 @@ export default function Onboarding() {
       <div className="relative z-10 shrink-0">
         {step === 1 ? (
           <div className="relative h-[273px] w-[180px] overflow-hidden">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/characters/onboarding/onboarding-1.png"
               alt=""
-              fill
-              className="object-contain"
-              quality={100}
-              priority
+              className="absolute inset-0 size-full object-contain"
             />
           </div>
         ) : (

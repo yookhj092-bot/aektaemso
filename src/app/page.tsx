@@ -23,7 +23,7 @@ export default function Splash() {
   return (
     <div className="relative flex size-full min-h-dvh flex-col overflow-hidden bg-gradient-to-b from-secondary-800 to-secondary-600">
       <div className="absolute left-1/2 top-[174px] flex w-[143px] -translate-x-1/2 flex-col items-center gap-8">
-        <Logo variant="secondary" />
+        <Logo variant="secondary" className="h-11 w-[143px]" />
         <p className="type-title-md-md text-center text-white">
           액땜은 적립하고,
           <br />

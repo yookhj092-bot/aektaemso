@@ -290,7 +290,12 @@ export default function Tutorial() {
 
         {isLast && (
           <div className="absolute bottom-[296px] left-1/2 h-[265px] w-[210px] -translate-x-1/2">
-            <Image src="/characters/tutorial/dugo-final.svg" alt="" fill className="object-contain" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/characters/tutorial/dugo-final.png"
+              alt=""
+              className="absolute inset-0 size-full object-contain"
+            />
           </div>
         )}
 
