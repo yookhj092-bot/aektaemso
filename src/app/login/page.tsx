@@ -7,10 +7,12 @@ import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
 import { useAppStore } from "@/lib/store";
 import { kakaoLogin } from "@/lib/kakao";
+import { pullUserData } from "@/lib/sync";
 
 export default function Login() {
   const router = useRouter();
   const login = useAppStore((s) => s.login);
+  const hydrateFromServer = useAppStore((s) => s.hydrateFromServer);
   const setNickname = useAppStore((s) => s.setNickname);
   const setProfileImageUrl = useAppStore((s) => s.setProfileImageUrl);
   const [pending, setPending] = useState(false);
@@ -22,8 +24,18 @@ export default function Login() {
       const nickname = profile?.kakao_account?.profile?.nickname ?? profile?.properties?.nickname;
       const profileImageUrl =
         profile?.kakao_account?.profile?.profile_image_url ?? profile?.properties?.profile_image;
-      if (nickname) setNickname(nickname);
-      if (profileImageUrl) setProfileImageUrl(profileImageUrl);
+
+      const serverData = await pullUserData({
+        defaultNickname: nickname,
+        defaultProfileImageUrl: profileImageUrl,
+      });
+      if (serverData) {
+        hydrateFromServer(serverData);
+      } else {
+        // Server sync failed — fall back to at least showing the fresh Kakao profile locally.
+        if (nickname) setNickname(nickname);
+        if (profileImageUrl) setProfileImageUrl(profileImageUrl);
+      }
       login();
       router.push("/home");
     } catch (error) {

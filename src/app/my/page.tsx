@@ -8,6 +8,7 @@ import SafeArea from "@/components/ui/SafeArea";
 import BottomNav from "@/components/ui/BottomNav";
 import { useAppStore } from "@/lib/store";
 import { kakaoLogout } from "@/lib/kakao";
+import { deleteUserData } from "@/lib/sync";
 
 function ChevronRight() {
   return (
@@ -64,6 +65,7 @@ export default function My() {
   }
 
   async function handleLeave() {
+    await deleteUserData();
     await kakaoLogout();
     resetAccount();
     router.push("/");

@@ -8,6 +8,7 @@ import TopNav from "@/components/ui/TopNav";
 import Button from "@/components/ui/Button";
 import EmotionDetailCard from "@/components/ui/EmotionDetailCard";
 import { useAppStore, type EmotionScore, type EntryType } from "@/lib/store";
+import { pushUserData } from "@/lib/sync";
 
 const SCORES: EmotionScore[] = [1, 3, 5, 7, 10];
 
@@ -61,6 +62,10 @@ function WriteForm() {
   function handleSubmit() {
     if (!canSubmit || score === null) return;
     addEntry(type, title.trim(), body.trim(), score);
+
+    const { nickname, profileImageUrl, points, entries } = useAppStore.getState();
+    pushUserData({ nickname, profileImageUrl, points, entries }).catch(() => {});
+
     router.push("/journal/result");
   }
 

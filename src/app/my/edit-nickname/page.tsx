@@ -6,6 +6,7 @@ import SafeArea from "@/components/ui/SafeArea";
 import TopNav from "@/components/ui/TopNav";
 import Button from "@/components/ui/Button";
 import { useAppStore } from "@/lib/store";
+import { pushUserData } from "@/lib/sync";
 
 const MAX_LENGTH = 12;
 
@@ -21,6 +22,10 @@ export default function EditNickname() {
   function handleSubmit() {
     if (!canSubmit) return;
     setNickname(trimmed);
+
+    const { profileImageUrl, points, entries } = useAppStore.getState();
+    pushUserData({ nickname: trimmed, profileImageUrl, points, entries }).catch(() => {});
+
     router.push("/my");
   }
 

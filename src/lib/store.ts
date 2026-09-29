@@ -39,6 +39,13 @@ type AppState = {
   markTutorialSeen: () => void;
   setNickname: (nickname: string) => void;
   setProfileImageUrl: (url: string | null) => void;
+  hydrateFromServer: (data: {
+    nickname: string;
+    profileImageUrl: string | null;
+    points: number;
+    entries: DiaryEntry[];
+    joinedAt: string;
+  }) => void;
   addEntry: (type: EntryType, title: string, body: string, score: EmotionScore) => AddEntryResult;
   removeEntry: (id: string) => void;
   resetAccount: () => void;
@@ -62,6 +69,14 @@ export const useAppStore = create<AppState>()(
       markTutorialSeen: () => set({ tutorialSeen: true }),
       setNickname: (nickname) => set({ nickname }),
       setProfileImageUrl: (profileImageUrl) => set({ profileImageUrl }),
+      hydrateFromServer: (data) =>
+        set({
+          nickname: data.nickname,
+          profileImageUrl: data.profileImageUrl,
+          points: data.points,
+          entries: data.entries,
+          joinedAt: data.joinedAt,
+        }),
 
       addEntry: (type, title, body, score) => {
         const current = get().points;
