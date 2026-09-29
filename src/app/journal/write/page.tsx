@@ -36,18 +36,25 @@ function WriteForm() {
   const [body, setBody] = useState("");
   const [score, setScore] = useState<EmotionScore | null>(null);
   const [keyboardOpen, setKeyboardOpen] = useState(false);
+  // Only devices with a touch (coarse) pointer show a virtual keyboard that covers content —
+  // on desktop/mouse the CTA should just stay put at the bottom.
+  const [isTouchDevice] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches
+  );
 
   const copy = COPY[type];
   const canSubmit = title.trim().length > 0 && body.trim().length > 0 && score !== null;
   const charCount = title.length + body.length;
 
   function handleFieldFocus(e: FocusEvent<HTMLElement>) {
+    if (!isTouchDevice) return;
     setKeyboardOpen(true);
     const target = e.currentTarget;
     setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "center" }), 300);
   }
 
   function handleFieldBlur() {
+    if (!isTouchDevice) return;
     setKeyboardOpen(false);
   }
 
