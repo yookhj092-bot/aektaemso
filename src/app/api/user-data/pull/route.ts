@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyKakaoToken } from "@/lib/kakao-server";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 type PullRequestBody = {
   accessToken: string;
@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid access token" }, { status: 401 });
   }
 
+  const supabaseAdmin = getSupabaseAdmin();
   const { data: existing, error: selectError } = await supabaseAdmin
     .from("app_user_data")
     .select("nickname, profile_image_url, points, entries, joined_at")

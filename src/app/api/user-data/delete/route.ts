@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyKakaoToken } from "@/lib/kakao-server";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 type DeleteRequestBody = {
   accessToken: string;
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid access token" }, { status: 401 });
   }
 
-  const { error } = await supabaseAdmin.from("app_user_data").delete().eq("kakao_id", kakaoId);
+  const { error } = await getSupabaseAdmin().from("app_user_data").delete().eq("kakao_id", kakaoId);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
